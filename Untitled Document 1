@@ -1,0 +1,48 @@
+queue = queue of current process.
+position = position of queue in list od queues
+process = current process.
+
+if process is requesting  for I/O:
+    save processing state to process
+
+    queue.getFirst()
+
+    if position == 0:
+        queue.append(process)
+    
+    //downgrade porcess
+    else: 
+        queues[postion-1].append(process)
+
+
+    endif
+
+
+else:
+    process.Time -= 1
+
+    p.QuantumTime -= 1
+
+    if quantum time finished (process.QuantumTime <= 0):
+        save processing state
+        queue.getFirst()
+
+        if task not finished (process.time > 0):
+            queues[position+1].append(process)
+
+        else:
+            terminate(process)
+
+        endif
+
+    elif task finished (process.Time <= 0):
+        queue.getFirst()
+
+        terminate(p)
+
+    else:
+        pass
+
+    endif
+
+endif
